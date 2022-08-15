@@ -3,51 +3,51 @@
 // pre-load the list of available images in assets
 var all_available_images = [
     // gecko garage
-    // 'rick-the-roller.png',
-    // 'caroline-the-crane.png',
-    // 'max-the-monster-truck.png',
-    // 'helen-the-helicopter.png',
-    // 'bobby-the-bus.png',
-    // 'sammy-the-schoolbus.png',
-    // 'celia-the-cementmixer.png',
-    // 'george-the-giantdumptruck.png',
-    // 'dylan-the-dumptruck.png',
-    // 'ryan-the-wreckingballcrane.png',
-    // 'andy-the-animalambulance.png',
-    // 'amber-the-ambulance.png',
-    // 'vicky-the-icecreamvan.png',
-    // 'chelsea-the-cherrypicker.png',
-    // 'rebecca-the-recyclingtruck.png',
-    // 'fiona-the-firetruck.png',
-    // 'tony-the-taxi.png',
-    // 'sophie-the-sportscar.png',
-    // 'mally-the-motorcycle.png',
-    // 'trevor-the-tractor.png',
-    // 'evie-the-ev.png',
-    // 'eric-the-excavator.jpeg',
-    // 'danny-the-digger.png',
-    // 'larry-the-lorry.png',
-    // 'gecko-baby-truck.png',
-    // 'gecko-video-1.png',
-    // 'gecko-muddy-trucks.png',
-    // 'oscar-the-oldbus.png',
-    // 'tilly-the-towtruck.png',
-    // 'bobby-stuck-in-snow.png',
-    // 'mia-the-minidigger.png',
-    // 'leo-the-limousine.png',
-    // 'polly-the-littlebus.png',
-    // 'five-green-buses.png',
-    // 'maggie-the-minifiretruck.png',
-    // 'celia-muddy-truck.png',
-    // 'sophie-larry-muddy.png',
-    // 'icecream-truck-smoothie.png',
-    // 'maisie-the-mower.png',
-    // 'babytruck-halloween.png',
-    // 'bobby-samy-muddy.png',
-    // 'gecko-garage-all.png',
-    // 'florence-the-forklift.png',
-    // 'mummy-bus.png',
-    // 'bobby-bus-thermometer.png',
+    'rick-the-roller.png',
+    'caroline-the-crane.png',
+    'max-the-monster-truck.png',
+    'helen-the-helicopter.png',
+    'bobby-the-bus.png',
+    'sammy-the-schoolbus.png',
+    'celia-the-cementmixer.png',
+    'george-the-giantdumptruck.png',
+    'dylan-the-dumptruck.png',
+    'ryan-the-wreckingballcrane.png',
+    'andy-the-animalambulance.png',
+    'amber-the-ambulance.png',
+    'vicky-the-icecreamvan.png',
+    'chelsea-the-cherrypicker.png',
+    'rebecca-the-recyclingtruck.png',
+    'fiona-the-firetruck.png',
+    'tony-the-taxi.png',
+    'sophie-the-sportscar.png',
+    'mally-the-motorcycle.png',
+    'trevor-the-tractor.png',
+    'evie-the-ev.png',
+    'eric-the-excavator.jpeg',
+    'danny-the-digger.png',
+    'larry-the-lorry.png',
+    'gecko-baby-truck.png',
+    'gecko-video-1.png',
+    'gecko-muddy-trucks.png',
+    'oscar-the-oldbus.png',
+    'tilly-the-towtruck.png',
+    'bobby-stuck-in-snow.png',
+    'mia-the-minidigger.png',
+    'leo-the-limousine.png',
+    'polly-the-littlebus.png',
+    'five-green-buses.png',
+    'maggie-the-minifiretruck.png',
+    'celia-muddy-truck.png',
+    'sophie-larry-muddy.png',
+    'icecream-truck-smoothie.png',
+    'maisie-the-mower.png',
+    'babytruck-halloween.png',
+    'bobby-samy-muddy.png',
+    'gecko-garage-all.png',
+    'florence-the-forklift.png',
+    'mummy-bus.png',
+    'bobby-bus-thermometer.png',
     'dot-the-babybus.png',
     'max-jump.png',
     'harry-the-babybus.png',
@@ -82,6 +82,8 @@ var all_available_images = [
     'bouncepatrol-christmas-mummyshark.png',
     'bouncepatrol-christmas-grandmashark.png',
     'bouncepatrol-halloweeen-oldmacs.png',
+    'olaf.png',
+    'elsa.png'
 ];
 var NUM_IMAGES_TO_SHOW = 20;
 // const NUM_IMAGES_TO_SHOW = all_available_images.length; // change num images accordingly, show all by default.
@@ -91,6 +93,10 @@ var quiz_img;
 var game_ended;
 var images_to_show = getRandomThumbnails(all_available_images, NUM_IMAGES_TO_SHOW);
 var num_cols;
+/* AUDIO */
+var wrongAudio = new Audio('assets/audio/wrong.wav');
+var correctAudio = new Audio('assets/audio/correct.wav');
+var tadaAudio = new Audio('assets/audio/tada.wav');
 addEventListeners();
 reloadGame(images_to_show);
 /* FUNCTION DEFINITIONS */
@@ -148,6 +154,7 @@ function reloadGame(images) {
 }
 function endGame() {
     game_ended = true;
+    tadaAudio.play();
     var instructions = document.getElementById("instructions");
     instructions.innerHTML = "You win! Press any key to restart.";
     // hide the gallery
@@ -192,6 +199,10 @@ function addEventListeners() {
                 if (current_image == quiz_img) {
                     images_to_show.splice(current_index - 1, 1);
                     images_to_show.length == 0 ? endGame() : reloadGame(images_to_show);
+                    correctAudio.play();
+                }
+                else {
+                    wrongAudio.play();
                 }
             }
             else if (key === "r" || key === "End") {
