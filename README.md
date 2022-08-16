@@ -16,6 +16,19 @@ A screenshot of the current product is below, and can also be accessed at [https
 
 ![Current Product](./readme-images/colour-selector-app.png)
 
+# Installation Setup
+
+1. Install required modules
+```
+npm install
+```
+
+2. Run the project. This command will start the webpack-dev-server, as well as start `tsc` in watch mode so that all changes to typescript files will automatically be compiled into their javascript version for use.
+```
+npm run start
+```
+
+
 # Other Solutions Considered
 - **Excel** - the UIUX for training navigation keys is fundamentally a grid view. Hence Excel came to mind as the "mother of spreadsheets". However, we can't constrain the arrow key navigation to 2 rows (as in the YouTube Kids App), so it is easy for the user to "lose" where we want them to try if they press and hold the down arrow and reach Row 2000 when we want them to navigate within Rows 1 and 5.
 - **Mac Finder** - I considered downloading these thumbnails as images and then display them as Gallery view on Mac Finder. This achieves the part about training to use the arrow keys, however does not address problem (5) above, because it is quite easy to identify the currently focused thumbnail on Mac Finder (admittedly untested with my toddler).
