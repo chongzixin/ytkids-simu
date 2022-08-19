@@ -28,6 +28,9 @@ npm install
 npm run start
 ```
 
+# Other Notes
+- This repo is a submodule on `chongzixin.github.io`. GitHub Actions have been setup to automatically trigger a submodule update on the parent repository whenever there is a push to the main branch.
+
 
 # Other Solutions Considered
 - **Excel** - the UIUX for training navigation keys is fundamentally a grid view. Hence Excel came to mind as the "mother of spreadsheets". However, we can't constrain the arrow key navigation to 2 rows (as in the YouTube Kids App), so it is easy for the user to "lose" where we want them to try if they press and hold the down arrow and reach Row 2000 when we want them to navigate within Rows 1 and 5.
