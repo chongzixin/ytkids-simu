@@ -90,6 +90,10 @@ var all_available_images = [
     'bouncepatrol-fivelittle-pigs.png',
     'bouncepatrol-12345-songs.png',
     'bouncepatrol-old-macdonald.png',
+    'little-babybum-sandcastle.png',
+    'little-babybum-umbrella.png',
+    'little-babybum-wheelsonbus.png',
+    'little-babybum-toys.png',
 ];
 var NUM_IMAGES_TO_SHOW = 20;
 // const NUM_IMAGES_TO_SHOW = all_available_images.length; // change num images accordingly, show all by default.

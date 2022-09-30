@@ -90,6 +90,10 @@ const all_available_images: string[] = [
     'bouncepatrol-fivelittle-pigs.png',
     'bouncepatrol-12345-songs.png',
     'bouncepatrol-old-macdonald.png',
+    'little-babybum-sandcastle.png',
+    'little-babybum-umbrella.png',
+    'little-babybum-wheelsonbus.png',
+    'little-babybum-toys.png',
 ];
 
 const NUM_IMAGES_TO_SHOW = 20;
