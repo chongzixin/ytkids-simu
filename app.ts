@@ -129,7 +129,7 @@ const placeholder_names: string[] = [
     'Ocean', 'Anahi', 'Natalie', 'Isabel',
     'Gwendolyn', 'Manimoli', 'Josiah', 'Bethany',
     'Adam', 'Jayden', 'Nathan'
-]
+];
 const name_placeholder = new Typed('#greeting-name', {
     strings: placeholder_names,
     typeSpeed: 50,
