@@ -7,9 +7,10 @@ body {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-h1 {
+#greeting {
     font-size: 8em;
     color: #fca6d1;
+    font-weight: bold;
 }
 
 h2 {

@@ -1,3 +1,4 @@
+import Typed from "typed.js"
 /* INIT */
 
 // pre-load the list of available images in assets
@@ -121,6 +122,17 @@ let quiz_img:string;
 let game_ended:boolean;
 let images_to_show = getRandomThumbnails(all_available_images, NUM_IMAGES_TO_SHOW) as string[];
 let num_cols:number;
+
+/* NAME PLACEHOLDERS */
+const placeholder_names: string[] = ['Arthur', 'Charlotte', 'Audrey']
+const name_placeholder = new Typed('#greeting', {
+    strings: placeholder_names,
+    typeSpeed: 2,
+    backSpeed: 2,
+    // attr: 'placeholder',
+    // bindInputFocusEvents: true,
+    loop: true
+});
 
 /* AUDIO */
 const wrongAudio: HTMLAudioElement = new Audio('assets/audio/wrong.wav');
