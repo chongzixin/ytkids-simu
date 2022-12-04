@@ -9,6 +9,8 @@ body {
     font-weight: bold;
     display: flex;
     justify-content: center;
+    padding-top: 0.6em;
+    padding-bottom: 0.6em;
 }
 
 input[type="text"],
