@@ -124,14 +124,21 @@ let images_to_show = getRandomThumbnails(all_available_images, NUM_IMAGES_TO_SHO
 let num_cols:number;
 
 /* NAME PLACEHOLDERS */
-const placeholder_names: string[] = ['Arthur', 'Charlotte', 'Audrey']
+const placeholder_names: string[] = [
+    'Arthur', 'Charlotte', 'Audrey', 'Allysa',
+    'Ocean', 'Anahi', 'Natalie', 'Isabel',
+    'Gwendolyn', 'Manimoli', 'Josiah', 'Bethany',
+    'Adam', 'Jayden', 'Nathan'
+]
 const name_placeholder = new Typed('#greeting-name', {
     strings: placeholder_names,
-    typeSpeed: 2,
-    backSpeed: 2,
+    typeSpeed: 50,
+    backSpeed: 50,
     attr: 'placeholder',
     bindInputFocusEvents: true,
-    loop: true
+    loop: true,
+    backDelay: 1000,
+    shuffle: true
 });
 
 /* AUDIO */
