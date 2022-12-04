@@ -7,10 +7,20 @@ body {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-#greeting {
+#greeting-container {
     font-size: 8em;
     color: #fca6d1;
     font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+
+input[type="text"],
+input[type="text"]:focus   
+{
+    background: transparent;
+    border: none;
+    outline-width: 0;
 }
 
 h2 {

@@ -125,12 +125,12 @@ let num_cols:number;
 
 /* NAME PLACEHOLDERS */
 const placeholder_names: string[] = ['Arthur', 'Charlotte', 'Audrey']
-const name_placeholder = new Typed('#greeting', {
+const name_placeholder = new Typed('#greeting-name', {
     strings: placeholder_names,
     typeSpeed: 2,
     backSpeed: 2,
-    // attr: 'placeholder',
-    // bindInputFocusEvents: true,
+    attr: 'placeholder',
+    bindInputFocusEvents: true,
     loop: true
 });
 
