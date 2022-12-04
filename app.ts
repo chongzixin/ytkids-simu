@@ -142,9 +142,9 @@ const name_placeholder = new Typed('#greeting-name', {
 });
 
 /* AUDIO */
-const wrongAudio: HTMLAudioElement = new Audio('assets/audio/wrong.wav');
-const correctAudio: HTMLAudioElement = new Audio('assets/audio/correct.wav');
-const tadaAudio: HTMLAudioElement = new Audio('assets/audio/tada.wav');
+const wrong_audio: HTMLAudioElement = new Audio('assets/audio/wrong.wav');
+const correct_audio: HTMLAudioElement = new Audio('assets/audio/correct.wav');
+const tada_audio: HTMLAudioElement = new Audio('assets/audio/tada.wav');
 
 addEventListeners();
 reloadGame(images_to_show);
@@ -219,7 +219,7 @@ function reloadGame(images:string[]) {
 
 function endGame() {
     game_ended = true;
-    tadaAudio.play();
+    tada_audio.play();
     const instructions = document.getElementById("instructions") as HTMLDivElement;
     instructions.innerHTML = "You win! Press any key to restart.";
 
@@ -270,9 +270,9 @@ function addEventListeners() {
                 if (current_image == quiz_img) {
                     images_to_show.splice(current_index-1, 1);
                     images_to_show.length == 0 ? endGame() : reloadGame(images_to_show);
-                    correctAudio.play();
+                    correct_audio.play();
                 } else {
-                    wrongAudio.play();
+                    wrong_audio.play();
                 }
             }
             else if(key === "r" || key === "End") {
