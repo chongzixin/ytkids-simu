@@ -5,9 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "tsc -w",
     "start": "webpack serve --open",
-    "start-old": "concurrently --kill-others \"npm run start-webdev\" \"npm run dev\"",
     "build": "webpack"
   },
   "repository": {
