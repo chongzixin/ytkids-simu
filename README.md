@@ -23,13 +23,15 @@ A screenshot of the current product is below, and can also be accessed at [https
 npm install
 ```
 
-2. Run the project. This command will start the webpack-dev-server, as well as start `tsc` in watch mode so that all changes to typescript files will automatically be compiled into their javascript version for use.
+2. Run the project. This command will start webpack in serve mode, so that all changes to typescript files will automatically be packaged into a single `bundle.js`. Note that for development, this `bundle.js` file is only in memory and won't be visible. 
 ```
 npm run start
 ```
 
 # Other Notes
 - This repo is a submodule on `chongzixin.github.io`. GitHub Actions have been setup to automatically trigger a submodule update on the parent repository whenever there is a push to the main branch.
+
+- When releasing to production, run `npm run build` so that the latest `bundle.js` file gets created. **IMPORTANT**
 
 
 # Other Solutions Considered
@@ -47,7 +49,7 @@ We landed on building an application for the following reasons
 - The child taking the shortest path to the video he wants to watch
 
 # Todo (just ideas for now, not in order of priority)
-- Textbox for name
+- ~~Textbox for name~~ (implemented on 4 December 2022)
 - Arrow keys on screen
 - Mobile/Tablet support
 
