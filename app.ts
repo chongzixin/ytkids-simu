@@ -275,7 +275,7 @@ function addEventListeners() {
                     wrong_audio.play();
                 }
             }
-            else if(key === "r" || key === "End") {
+            else if(key === "End") {
                 // if user presses R or End, refresh page to randomise images again.
                 // we use End to provide convenience to users because it's near the arrow keys on the keyboard.
                 images_to_show = getRandomThumbnails(all_available_images, NUM_IMAGES_TO_SHOW) as string[];
