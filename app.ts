@@ -276,10 +276,16 @@ function addEventListeners() {
                 }
             }
             else if(key === "End") {
-                // if user presses R or End, refresh page to randomise images again.
-                // we use End to provide convenience to users because it's near the arrow keys on the keyboard.
+                // if user presses End, refresh page to randomise images again.
+                // we use End to provide convenience to users because it's near the arrow keys on my keyboard.
                 images_to_show = getRandomThumbnails(all_available_images, NUM_IMAGES_TO_SHOW) as string[];
                 reloadGame(images_to_show)
+            }
+            else if(key.match(/^[a-z0-9]$/i) || key === " " || key === "Backspace") {
+                // if user presses anything alphanumeric, assume they are typing a name and start populating the textfield
+                // TODO: widen textfield for long names
+                const current_text = (document.getElementById('greeting-name') as HTMLInputElement).value;
+                (document.getElementById('greeting-name') as HTMLInputElement).value = (key === "Backspace" ? current_text.slice(0, -1) : current_text.concat(key));
             }
         }
         
