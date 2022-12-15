@@ -283,9 +283,9 @@ function addEventListeners() {
             }
             else if(key.match(/^[a-z0-9]$/i) || key === " " || key === "Backspace") {
                 // if user presses anything alphanumeric, assume they are typing a name and start populating the textfield
-                // TODO: widen textfield for long names
+                // pressing Backspace will reduce one character from the textfield, while all other alphanumeric will be appended to the textfield up to a maximum of 10 characters.
                 const current_text = (document.getElementById('greeting-name') as HTMLInputElement).value;
-                (document.getElementById('greeting-name') as HTMLInputElement).value = (key === "Backspace" ? current_text.slice(0, -1) : current_text.concat(key));
+                (document.getElementById('greeting-name') as HTMLInputElement).value = (key === "Backspace" ? current_text.slice(0, -1) : current_text.concat(key).slice(0,10));
             }
         }
         

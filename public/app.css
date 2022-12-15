@@ -23,7 +23,7 @@ input::placeholder
     color: #fca6d1;
     font-weight: bold;
     font-size: 1em;
-    width: 700px;
+    width: 800px;
 }
 
 input:focus::placeholder {
