@@ -1,19 +1,38 @@
 body {
     background-color: #1b1d36;
-}
-
-.text {
-    text-align: center;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-h1 {
+#greeting-container {
     font-size: 8em;
     color: #fca6d1;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    padding-top: 0.6em;
+    padding-bottom: 0.6em;
+}
+
+input[type="text"],
+input[type="text"]:focus,
+input::placeholder
+{
+    background: transparent;
+    border: none;
+    outline-width: 0;
+    color: #fca6d1;
+    font-weight: bold;
+    font-size: 1em;
+    width: 800px;
+}
+
+input:focus::placeholder {
+    color: transparent;
 }
 
 h2 {
     color: #99d6ea;
+    text-align: center;
 }
 
 .grid {

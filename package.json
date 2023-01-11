@@ -5,9 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "tsc -w",
-    "start-webdev": "webpack-dev-server",
-    "start": "concurrently --kill-others \"npm run start-webdev\" \"npm run dev\"",
+    "start": "webpack serve --open",
     "build": "webpack"
   },
   "repository": {
@@ -29,6 +27,7 @@
     "webpack-dev-server": "^4.7.2"
   },
   "dependencies": {
+    "@types/typed.js": "^2.0.9",
     "typescript": "^4.5.4"
   }
 }

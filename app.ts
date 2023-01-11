@@ -1,3 +1,4 @@
+import Typed from "typed.js"
 /* INIT */
 
 // pre-load the list of available images in assets
@@ -122,10 +123,28 @@ let game_ended:boolean;
 let images_to_show = getRandomThumbnails(all_available_images, NUM_IMAGES_TO_SHOW) as string[];
 let num_cols:number;
 
+/* NAME PLACEHOLDERS */
+const placeholder_names: string[] = [
+    'Arthur', 'Charlotte', 'Audrey', 'Allysa',
+    'Ocean', 'Anahi', 'Natalie', 'Isabel',
+    'Gwendolyn', 'Manimoli', 'Josiah', 'Bethany',
+    'Adam', 'Jayden', 'Nathan'
+];
+const name_placeholder = new Typed('#greeting-name', {
+    strings: placeholder_names,
+    typeSpeed: 50,
+    backSpeed: 50,
+    attr: 'placeholder',
+    bindInputFocusEvents: true,
+    loop: true,
+    backDelay: 1000,
+    shuffle: true
+});
+
 /* AUDIO */
-const wrongAudio: HTMLAudioElement = new Audio('assets/audio/wrong.wav');
-const correctAudio: HTMLAudioElement = new Audio('assets/audio/correct.wav');
-const tadaAudio: HTMLAudioElement = new Audio('assets/audio/tada.wav');
+const wrong_audio: HTMLAudioElement = new Audio('assets/audio/wrong.wav');
+const correct_audio: HTMLAudioElement = new Audio('assets/audio/correct.wav');
+const tada_audio: HTMLAudioElement = new Audio('assets/audio/tada.wav');
 
 addEventListeners();
 reloadGame(images_to_show);
@@ -200,7 +219,7 @@ function reloadGame(images:string[]) {
 
 function endGame() {
     game_ended = true;
-    tadaAudio.play();
+    tada_audio.play();
     const instructions = document.getElementById("instructions") as HTMLDivElement;
     instructions.innerHTML = "You win! Press any key to restart.";
 
@@ -251,16 +270,22 @@ function addEventListeners() {
                 if (current_image == quiz_img) {
                     images_to_show.splice(current_index-1, 1);
                     images_to_show.length == 0 ? endGame() : reloadGame(images_to_show);
-                    correctAudio.play();
+                    correct_audio.play();
                 } else {
-                    wrongAudio.play();
+                    wrong_audio.play();
                 }
             }
-            else if(key === "r" || key === "End") {
-                // if user presses R or End, refresh page to randomise images again.
-                // we use End to provide convenience to users because it's near the arrow keys on the keyboard.
+            else if(key === "End") {
+                // if user presses End, refresh page to randomise images again.
+                // we use End to provide convenience to users because it's near the arrow keys on my keyboard.
                 images_to_show = getRandomThumbnails(all_available_images, NUM_IMAGES_TO_SHOW) as string[];
                 reloadGame(images_to_show)
+            }
+            else if(key.match(/^[a-z0-9]$/i) || key === " " || key === "Backspace") {
+                // if user presses anything alphanumeric, assume they are typing a name and start populating the textfield
+                // pressing Backspace will reduce one character from the textfield, while all other alphanumeric will be appended to the textfield up to a maximum of 10 characters.
+                const current_text = (document.getElementById('greeting-name') as HTMLInputElement).value;
+                (document.getElementById('greeting-name') as HTMLInputElement).value = (key === "Backspace" ? current_text.slice(0, -1) : current_text.concat(key).slice(0,10));
             }
         }
         
